@@ -36,3 +36,12 @@ body {
 #todo-input::placeholder {
     color: rgba(255, 255, 255, .5);
 }
+
+#todo-counter {
+    color: white;
+    font-size: 1.6em;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    margin: 2em 0 1em;
+    padding-bottom: .4em;
+}

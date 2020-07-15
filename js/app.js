@@ -31,11 +31,13 @@ var app = {
   createCounter: function() {
     console.log('app createCounter');
 
-    //balise <p>
-    var p = document.createElement
-    //balise <span>
-
-    //mettre span dans p
+    //un compteur <div> + id
+    var counter = document.createElement('div');
+    counter.id = 'todo-counter';
+    //définir le contenu du compteur
+    counter.textContent = '2 tâche(s) en cours';
+    //Ajouter au DOM
+    app.todo.appendChild(counter);
   },
   //Création de la liste
   createList: function() {
