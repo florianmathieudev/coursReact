@@ -42,6 +42,14 @@ var app = {
   //Création de la liste
   createList: function() {
     console.log('app createList');
+
+    //liste <ul></ul> + enrichisssement
+    var list = document.createElement('ul');
+    list.id = 'todo-list'
+    //générer des tâche temporaire
+
+    //ajouter au DOM
+    app.todo.appendChild(list);
   },
 };
 
