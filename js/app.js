@@ -45,12 +45,32 @@ var app = {
 
     //liste <ul></ul> + enrichisssement
     var list = document.createElement('ul');
+    app.list = list;
     list.id = 'todo-list'
     //générer des tâche temporaire
-
+    app.generateTask();
+    app.generateTask();
+    app.generateTask();
     //ajouter au DOM
     app.todo.appendChild(list);
   },
+  generateTask: function() {
+    //<li></li> le corp de la tâche + class css
+    var task = document.createElement('li');
+    task.className = 'task';
+    //checkbox (input) + label (span) => enrichissement : attributs
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = false;
+
+    var label = document.createElement('span');
+    label.textContent = 'une tâche factice';
+    //ajout de l'input et du label à la tâche
+    task.appendChild(checkbox);
+    task.appendChild(label);
+    //ajout de la tâche à la liste
+    app.list.appendChild(task);
+  }
 };
 
 

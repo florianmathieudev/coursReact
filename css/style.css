@@ -6,8 +6,6 @@ Ombre interne Input = 25px rgba(0,0,0,.1)
 Ombre interne Input Focus = 25px rgba(0,0,0,.5)
 Texte Input = #fff
 Placeholder Input = rgba(255, 255, 255, .5)
-Fond Tâche = #eee
-Bordure tâche = #ccc
 */
 body {
     background-color: #2e5849 ;
@@ -44,4 +42,21 @@ body {
     border-bottom: 1px solid white;
     margin: 2em 0 1em;
     padding-bottom: .4em;
+}
+
+/*
+Fond Tâche = #eee
+Bordure tâche = #ccc
+*/
+.task {
+    background: #eee;
+    border: #ccc;
+    font-size: 1.2em;
+    padding: 1em .7em;
+    margin: .3em 0;
+}
+
+.task--done {
+    opacity: .5;
+    text-decoration: line-through;
 }
