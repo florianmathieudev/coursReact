@@ -2,6 +2,7 @@
  * Todolist
  */
 var app = {
+  count: 0,
   init: function() {
     app.todo = document.getElementById('todo');
     //Création du form
@@ -27,6 +28,10 @@ var app = {
         label: content,
         done: false
       });
+
+      //incrémenter le compteur
+      app.count++;
+      app.updateCounter();
     }
 
     //Nettoie l'input
@@ -57,15 +62,20 @@ var app = {
     //placer le form dans le DOM
     app.todo.appendChild(form);
   },
+  //mise à jour du compteur dans le DOM
+  updateCounter: function () {
+    app.counter.textContent = `${app.count} tâche(s) en cours`;
+  },
   //Création du compteur
   createCounter: function() {
     console.log('app createCounter');
 
     //un compteur <div> + id
     var counter = document.createElement('div');
+    app.counter = counter; //counter est dispo dans tout app
     counter.id = 'todo-counter';
     //définir le contenu du compteur
-    counter.textContent = '2 tâche(s) en cours';
+    counter.textContent = `${app.count} tâche(s) en cours`;
     //Ajouter au DOM
     app.todo.appendChild(counter);
   },
