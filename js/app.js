@@ -26,8 +26,11 @@ var app = {
       app.generateTask({
         label: content,
         done: false
-      })
+      });
     }
+
+    //Nettoie l'input
+    evt.target.elements.inputValue.value = '';
   },
 
 
