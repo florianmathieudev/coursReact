@@ -108,6 +108,23 @@ var app = {
     checkbox.type = 'checkbox';
     checkbox.checked = data.done;
 
+    //ecouter le changement de la checkbox
+    checkbox.addEventListener('change', function(){
+      task.classList.toggle('task--done');
+      if (checkbox.checked) {
+        //ajout de la class
+        //task.classList.add('task--done');
+        //decrementer le count
+        app.count--;
+      } else {
+        //task.classList.remove('task--done');
+        app.count++;
+      }
+      //maj counter
+      app.updateCounter();
+      
+    });
+
     var label = document.createElement('span');
     label.textContent = data.label;
     //ajout de l'input et du label à la tâche
