@@ -48,23 +48,32 @@ var app = {
     app.list = list;
     list.id = 'todo-list'
     //générer des tâche temporaire
-    app.generateTask();
-    app.generateTask();
-    app.generateTask();
+    app.generateTask({
+      label: 'farine',
+      done: true,
+    });
+    
     //ajouter au DOM
     app.todo.appendChild(list);
   },
-  generateTask: function() {
+  generateTask: function(data) {
+    console.log(data);
     //<li></li> le corp de la tâche + class css
     var task = document.createElement('li');
     task.className = 'task';
+
+    if (data.done) {
+      task.classList.add('task--done');
+    }
+
+
     //checkbox (input) + label (span) => enrichissement : attributs
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.checked = false;
+    checkbox.checked = data.done;
 
     var label = document.createElement('span');
-    label.textContent = 'une tâche factice';
+    label.textContent = data.label;
     //ajout de l'input et du label à la tâche
     task.appendChild(checkbox);
     task.appendChild(label);
