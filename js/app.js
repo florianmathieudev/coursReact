@@ -11,16 +11,43 @@ var app = {
     //Création de la liste
     app.createList();
   },
+
+  //Création d'une tache
+  onAddTask: function(evt) {
+    evt.preventDefault();
+
+    //valeur du champ
+    var value = evt.target.elements.inputValue.value;
+    var content = value.trim();
+
+    // si la valeur n'est pas nul j'ajoute une tâche
+    if (content.length > 0) {
+      console.log('fais qc')
+      app.generateTask({
+        label: content,
+        done: false
+      })
+    }
+  },
+
+
   //Création du form
   createForm: function() {
     console.log('app createForm');
     //balise <form> +enrichissement(id...)
     var form = document.createElement('form')
     form.id = 'todo-form';
+
+    //intercepter le submit du form
+    form.addEventListener('submit', app.onAddTask)
+
+
+
     //balise <input> text + placeholder et id
     var input = document.createElement('input');
     input.id = 'todo-input';
     input.placeholder = 'Ajouter une tâche';
+    input.name = 'inputValue';
     input.type = 'text';
     //placer input dans le form
     form.appendChild(input);
@@ -48,16 +75,12 @@ var app = {
     app.list = list;
     list.id = 'todo-list'
     //générer des tâche temporaire
-    app.generateTask({
-      label: 'farine',
-      done: true,
-    });
+    
     
     //ajouter au DOM
     app.todo.appendChild(list);
   },
   generateTask: function(data) {
-    console.log(data);
     //<li></li> le corp de la tâche + class css
     var task = document.createElement('li');
     task.className = 'task';
